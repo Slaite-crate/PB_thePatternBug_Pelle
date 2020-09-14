@@ -39,35 +39,37 @@ public class Maze {
 
     public void drawMaze(){
         String result = "";
+        String wall = "##";
+        String space = "  ";
         for (int j = 0; j < maze[0].length; j++){
             if (maze[0][j].top == 1){
-                result += "@@";
+                result += wall+wall;
             } else {
-                result += "@ ";
+                result += wall+space;
             }
         }
-        result += "@";
+        result += wall;
         result += "\n";
         for (int i = 0; i < maze.length; i++){
             if (maze[i][0].left == 1){
-                result += "@";
+                result += wall;
             }   else {
-                result += " ";
+                result += space;
             }
             for (int j = 0; j < maze[i].length; j++){
                 if (maze[i][j].right == 1){
-                    result += " @";
+                    result += space+wall;
                 } else {
-                    result += "  ";
+                    result += space+space;
                 }
             }
             result += "\n";
-            result += "@";
+            result += wall;
             for (int j = 0; j< maze[i].length; j++){
                 if (maze[i][j].bottom == 1){
-                    result += "@@";
+                    result += wall+wall;
                 } else {
-                    result += " @";
+                    result += space+wall;
                 }
             }
             result += "\n";
